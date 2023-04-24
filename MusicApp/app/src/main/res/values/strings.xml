@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">MusicApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_radio">Radio</string>
+    <string name="title_search">Search</string>
+    <string name="title_library">Library</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="channel_name">Music App</string>
+    <string name="channel_description">My app</string>
+    <string name="reading_file">Reading file</string>
+    <string name="shuffle">Shuffle</string>
+    <string name="play">Play</string>
+    <string name="songs">Songs</string>
+    <string name="sort">Sort</string>
+    <string name="library">Library</string>
+    <string name="listen_now">Listen now</string>
+    <string name="edit">Edit</string>
+    <string name="download">Download</string>
+    <string name="playlist">Playlist</string>
+    <string name="artists">Artists</string>
+    <string name="song">Song</string>
+
+</resources>

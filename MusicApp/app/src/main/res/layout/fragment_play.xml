@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui_presenter.play.PlayFragment">
+
+    <data>
+
+        <variable
+            name="s"
+            type="com.example.musicapp.model.chart.track.Tracks" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_img"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="200dp"
+            android:shadowRadius="@integer/material_motion_duration_medium_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="5dp"
+            tools:layout_editor_absoluteY="3dp">
+
+            <ImageView
+                url="@{s.images.background}"
+                android:id="@+id/img_album"
+                android:layout_width="350dp"
+                android:layout_height="350dp"
+                android:src="@drawable/ic_baseline_album_24" />
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/song_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{s.title}"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_img" />
+
+        <TextView
+            android:id="@+id/singer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{s.subtitle}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/song_name" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/ic_baseline_more_horiz_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_img" />
+
+        <SeekBar
+            android:id="@+id/progress_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/singer"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="449dp" />
+
+        <TextView
+            android:id="@+id/txt_real_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress_time" />
+
+        <TextView
+            android:id="@+id/txt_song_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress_time" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_real_time">
+
+            <ImageButton
+                android:id="@+id/btn_previous"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:src="@drawable/ic_baseline_skip_previous_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_play"
+                android:layout_marginEnd="24dp"
+                />
+
+            <ImageButton
+                android:id="@+id/btn_play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:src="@drawable/ic_baseline_pause_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btn_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:src="@drawable/ic_baseline_skip_next_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_play"
+                android:layout_marginStart="24dp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/shuffle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_shuffle_24"
+                android:background="@null"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_previous"
+                android:layout_marginEnd="32dp"
+                />
+
+            <ImageButton
+                android:id="@+id/repeat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:src="@drawable/ic_baseline_on_repeat_24"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btn_next"
+                android:layout_marginStart="32dp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_real_time">
+
+            <ImageView
+                android:id="@+id/img_volume_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:src="@drawable/ic_baseline_volume_down_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <SeekBar
+                android:id="@+id/volume_bar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:max="100"
+                android:progress="20"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/img_volume_up"
+                app:layout_constraintStart_toEndOf="@+id/img_volume_down"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="93dp"
+                tools:layout_editor_absoluteY="608dp" />
+
+            <ImageView
+                android:id="@+id/img_volume_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:src="@drawable/ic_baseline_volume_up_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
